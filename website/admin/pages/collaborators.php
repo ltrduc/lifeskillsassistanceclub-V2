@@ -12,11 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Collaborators'])) {
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkCollaborators = $manageMember->deletePersonnel($id);
+    $delCollaborators = $manageMember->deletePersonnel($id);
 }
 
 if (isset($checkCollaborators)) {
     echo $checkCollaborators;
+}
+
+if (isset($delCollaborators)) {
+    echo $delCollaborators;
+    echo "<script> setTimeout(() => { window.location = '?q=collaborators'; }, 1000); </script>";
 }
 ?>
 

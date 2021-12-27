@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
 
 if (isset($checkAtyPhoto)) {
     echo $checkAtyPhoto;
+    echo "<script> setTimeout(() => { window.location = '?q=activityphoto'; }, 1000); </script>";
 }
 ?>
 

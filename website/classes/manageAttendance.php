@@ -21,30 +21,29 @@ class manageAttendance
 
     public function setAttendance($idstudent, $fullname, $schoolyear, $semester, $date, $shift, $attendance)
     {
-        $idstudent = mysqli_real_escape_string($this->db->link, $idstudent);
-        $fullname = mysqli_real_escape_string($this->db->link, $fullname);
-        $schoolyear = mysqli_real_escape_string($this->db->link, $schoolyear);
-        $semester = mysqli_real_escape_string($this->db->link, $semester);
-        $date = mysqli_real_escape_string($this->db->link, $date);
-        $shift = mysqli_real_escape_string($this->db->link, $shift);
-        $attendance = mysqli_real_escape_string($this->db->link, $attendance);
+        $idstudent = mysqli_real_escape_string($this->db->link, $this->fm->validation($idstudent));
+        $fullname = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
+        $schoolyear = mysqli_real_escape_string($this->db->link, $this->fm->validation($schoolyear));
+        $semester = mysqli_real_escape_string($this->db->link, $this->fm->validation($semester));
+        $date = mysqli_real_escape_string($this->db->link, $this->fm->validation($date));
+        $shift = mysqli_real_escape_string($this->db->link, $this->fm->validation($shift));
+        $attendance = mysqli_real_escape_string($this->db->link, $this->fm->validation($attendance));
 
         $query = "SELECT * FROM tbl_attendances WHERE idstudent = '$idstudent' AND schoolyear = '$schoolyear'
         AND semester = '$semester' AND date = '$date' AND shift = '$shift'";
         $result = $this->db->select($query);
 
-        if ($result != false) {
-            $alert = '<script> toastr.warning("Đã có thành viên điểm danh ca trực này. Vui lòng điểm danh lại!");</script>';
-            return $alert;
+        if ($result) {
+            echo '<script> toastr.warning(" ' . $fullname . ' đã điểm danh thành công!");</script>';
         } else {
             $query = "INSERT INTO `tbl_attendances`(`idstudent`, `fullname`, `schoolyear`, `semester`, `date`, `shift`, `attendance`) 
             VALUES ('$idstudent','$fullname','$schoolyear','$semester','$date','$shift','$attendance')";
             $result = $this->db->insert($query);
 
-            if ($result != false) {
+            if ($result) {
                 echo '<script> toastr.success(" ' . $fullname . ' đã điểm danh thành công!");</script>';
             } else {
-                echo '<script> toastr.warning("Cập nhật thất bại!");</script>';
+                echo '<script> toastr.warning("Cập nhật điểm danh thất bại!");</script>';
             }
         }
     }

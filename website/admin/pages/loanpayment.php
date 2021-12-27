@@ -8,7 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $end = $_POST['end'];
     $reason = $_POST['reason'];
 
-    $checkloanPayment = $loanPayment->setLoanPayment($name, $phone, $devices, $quantity, $begin, $end, $reason);
+    $check_loanPayment = $loanPayment->setLoanPayment($name, $phone, $devices, $quantity, $begin, $end, $reason);
+    if (isset($check_loanPayment)) {
+        echo $check_loanPayment;
+    }
 }
 
 if (isset($_GET['warningId'])) {
@@ -30,6 +33,7 @@ if (isset($_GET['id'])) {
 
 if (isset($checkloanPayment)) {
     echo $checkloanPayment;
+    echo "<script> setTimeout(() => { window.location = '?q=loanpayment'; }, 1000); </script>";
 }
 ?>
 
@@ -107,8 +111,8 @@ if (isset($checkloanPayment)) {
                                                                             <td><?php echo $value['phone']; ?></td>
                                                                             <td><?php echo $value['devices']; ?></td>
                                                                             <td class="text-center"><?php echo $value['quantity']; ?></td>
-                                                                            <td><?php echo $value['begin']; ?></td>
-                                                                            <td><?php echo $value['end']; ?></td>
+                                                                            <td><?php echo $fm->formatDate($value['begin']) ?></td>
+                                                                            <td><?php echo $fm->formatDate($value['end']) ?></td>
                                                                             <td><?php echo $value['reason']; ?></td>
                                                                             <?php
                                                                             if ($value['status'] == 'Chưa trả') {

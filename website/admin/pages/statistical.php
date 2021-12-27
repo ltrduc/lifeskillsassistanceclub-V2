@@ -2,12 +2,11 @@
 if (isset($_GET['schoolyear']) && isset($_GET['semester'])) {
     $schoolyear = $_GET['schoolyear'];
     $semester = $_GET['semester'];
-
     $checkmanageStatistical = $manageStatistical->deleteListStatistical($schoolyear, $semester);
 }
-
 if (isset($checkmanageStatistical)) {
     echo $checkmanageStatistical;
+    echo "<script> setTimeout(() => { window.location = '?q=statistical'; }, 1000); </script>";
 }
 ?>
 

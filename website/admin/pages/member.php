@@ -12,11 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member'])) {
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkMember = $manageMember->deletePersonnel($id);
+    $delMember = $manageMember->deletePersonnel($id);
 }
 
 if (isset($checkMember)) {
     echo $checkMember;
+}
+if (isset($delMember)) {
+    echo $delMember;
+    echo "<script> setTimeout(() => { window.location = '?q=member'; }, 1000); </script>";
 }
 ?>
 

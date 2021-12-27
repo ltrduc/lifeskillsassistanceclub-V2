@@ -23,7 +23,6 @@ class adminiStration
     {
         $query = "SELECT * FROM tbl_user ORDER BY level ASC";
         $result = $this->db->select($query);
-
         return $result;
     }
 }

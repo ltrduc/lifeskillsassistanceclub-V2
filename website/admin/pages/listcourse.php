@@ -28,15 +28,20 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
     $schoolyear = $_GET['schoolyear'];
     $semesters = $_GET['semesters'];
     $dates = $_GET['dates'];
-    $checkmanageCourse = $manageCourse->deleteStartDay($schoolyear, $semesters, $dates);
+    $delmanageCourse = $manageCourse->deleteStartDay($schoolyear, $semesters, $dates);
+}
+
+if (isset($checkmanageCourse)) {
+    echo $checkmanageCourse;
 }
 
 if (isset($checkmanageSubjects)) {
     echo $checkmanageSubjects;
 }
 
-if (isset($checkmanageCourse)) {
-    echo $checkmanageCourse;
+if (isset($delmanageCourse)) {
+    echo $delmanageCourse;
+    echo "<script> setTimeout(() => { window.location = '?q=listcourse'; }, 1000); </script>";
 }
 ?>
 
@@ -244,7 +249,7 @@ if (isset($checkmanageCourse)) {
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
-                                <div class="card-header" style="padding-bottom: 10px;">
+                                    <div class="card-header" style="padding-bottom: 10px;">
                                         <div class="float-left">
                                             DANH SÁCH LỊCH HỌC
                                         </div>
@@ -271,7 +276,7 @@ if (isset($checkmanageCourse)) {
                                                         ?>
                                                                 <tr>
                                                                     <td style="font-weight: bold; "><?php echo $i++; ?></td>
-                                                                    <td><?php echo $value['dates']; ?></td>
+                                                                    <td><?php echo $fm->formatDate($value['dates']) ?></td>
                                                                     <td><?php echo $value['semesters']; ?></td>
                                                                     <td><?php echo $value['schoolyear']; ?></td>
                                                                     <td class="text-center">

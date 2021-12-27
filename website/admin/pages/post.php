@@ -13,17 +13,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['warningId'])) {
     $id = $_GET['warningId'];
-    $checkPostgenre = $managePost->statusPost($id, 1);
+    $checkPostgenre1 = $managePost->statusPost($id, 1);
 }
 
 if (isset($_GET['successId'])) {
     $id = $_GET['successId'];
-    $checkPostgenre = $managePost->statusPost($id, 0);
+    $checkPostgenre1 = $managePost->statusPost($id, 0);
 }
 
 if (isset($_GET['idPost'])) {
     $idPost = $_GET['idPost'];
-    $checkPostgenre = $managePost->deletePost($idPost);
+    $checkPostgenre1 = $managePost->deletePost($idPost);
+}
+
+if (isset($checkPostgenre1)) {
+    echo $checkPostgenre1;
+    echo "<script> setTimeout(() => { window.location = '?q=post'; }, 1000); </script>";
 }
 
 if (isset($checkPostgenre)) {

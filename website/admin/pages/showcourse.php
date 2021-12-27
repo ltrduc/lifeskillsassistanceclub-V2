@@ -13,12 +13,12 @@ if (
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
-
     $checkmanageCourse = $manageCourse->deleteCourse($id);
 }
 
 if (isset($checkmanageCourse)) {
     echo $checkmanageCourse;
+    echo '<script> setTimeout(() => { window.location = "?q=showcourse&schoolyear=' . $schoolyear . '&semester=' . $semester . '&dates=' . $dates . '"; }, 1000); </script>';
 }
 ?>
 <section class="pcoded-main-container">
@@ -36,7 +36,7 @@ if (isset($checkmanageCourse)) {
                                         </div>
                                         <ul class="breadcrumb">
                                             <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="">Lịch học ngày <?php echo $dates ?></a></li>
+                                            <li class="breadcrumb-item"><a href="">Lịch học ngày <?php echo $fm->formatDate($dates) ?></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@ if (isset($checkmanageCourse)) {
                                 <div class="card">
                                     <div class="card-header" style="padding-bottom: 10px;">
                                         <div class="float-left">
-                                            LỊCH HỌC NGÀY <?php echo $dates ?>
+                                            LỊCH HỌC NGÀY <?php echo $fm->formatDate($dates) ?>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -81,7 +81,7 @@ if (isset($checkmanageCourse)) {
                                                                     <td><?php echo $value['subjects']; ?></td>
                                                                     <td><?php echo $value['group']; ?></td>
                                                                     <td><?php echo $value['period']; ?></td>
-                                                                    <td><?php echo $value['dates']; ?></td>
+                                                                    <td><?php echo $fm->formatDate($value['dates']) ?></td>
                                                                     <td><?php echo $value['local']; ?></td>
                                                                     <td><?php echo $value['teacher']; ?></td>
                                                                     <?php if (Session::get('level') == "050301" || Session::get('level') == "0") { ?>

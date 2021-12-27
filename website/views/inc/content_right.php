@@ -20,7 +20,7 @@
                         <h3 class="media-heading">
                             <a href="?q=viewpost&id=<?php echo $showQuanTrong['id'] ?>" target="_self" style="text-transform: uppercase;"><?php echo $fm->textShorten($showQuanTrong['title'], 60); ?></a>
                         </h3>
-                        <span class="media-date"><a style="font-size: 12px;"><?php echo $showQuanTrong['time'] ?>,
+                        <span class="media-date"><a style="font-size: 12px;"><?php echo $fm->formatDate($showQuanTrong['time']) ?>,
                                 by:</a>
                             <a style="font-size: 12px;"><?php echo $showQuanTrong['author'] ?></a></span>
                         <div class="widget_article_social">
@@ -56,7 +56,7 @@
                         <h3 class="media-heading">
                             <a href="?q=viewpost&id=<?php echo $showLichTruc['id'] ?>" target="_self" style="text-transform: uppercase;"><?php echo $fm->textShorten($showLichTruc['title'], 60); ?></a>
                         </h3>
-                        <span class="media-date"><a style="font-size: 12px;"><?php echo $showLichTruc['time'] ?>,
+                        <span class="media-date"><a style="font-size: 12px;"><?php echo $fm->formatDate($showLichTruc['time']) ?>,
                                 by:</a>
                             <a style="font-size: 12px;"><?php echo $showLichTruc['author'] ?></a></span>
 
