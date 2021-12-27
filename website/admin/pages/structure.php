@@ -7,7 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['idstudent'])) {
     $idstudent = $_GET['idstudent'];
-    $checkStructure = $manageStructure->deleteStructure($idstudent);
+    $delStructure = $manageStructure->deleteStructure($idstudent);
+}
+
+if (isset($delStructure)) {
+    echo $delStructure;
+    echo "<script> setTimeout(() => { window.location = '?q=structure'; }, 1000); </script>";
 }
 
 if (isset($checkStructure)) {

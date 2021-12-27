@@ -75,7 +75,6 @@ if (isset($delCollaborators)) {
                                                                     <th scope="row " style="width: 25%; ">Họ và Tên</th>
                                                                     <th scope="row " style="width: 15%; ">Ngày sinh</th>
                                                                     <th scope="row " style="width: 25%; ">Facebook</th>
-                                                                    <th scope="row " style="width: 25%; ">Ban hiện tại</th>
                                                                     <th scope="row " style="width: 10%; ">Số ĐT</th>
                                                                     <th class="text-center" scope="row " style="width: 5%; ">Thao tác</th>
                                                                 </tr>
@@ -93,7 +92,6 @@ if (isset($delCollaborators)) {
                                                                             <td><?php echo $value['fullname'] ?></td>
                                                                             <td><?php echo $value['birthday'] ?></td>
                                                                             <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
-                                                                            <td><?php echo $value['team'] ?></td>
                                                                             <td><?php echo $value['phone'] ?></td>
                                                                             <td class="text-center">
                                                                                 <a class="btn btn-primary" style="margin: 0; padding: 2px 8px;" href="?q=updateCollaborators&id=<?php echo $value['id'] ?>"><i class="fa fa-edit" style="margin-right: 0;"></i></a>
@@ -110,7 +108,6 @@ if (isset($delCollaborators)) {
                                                                     <th scope="row " style="width: 25%; ">Họ và Tên</th>
                                                                     <th scope="row " style="width: 15%; ">Ngày sinh</th>
                                                                     <th scope="row " style="width: 25%; ">Facebook</th>
-                                                                    <th scope="row " style="width: 25%; ">Ban hiện tại</th>
                                                                     <th scope="row " style="width: 10%; ">Số ĐT</th>
                                                                     <th class="text-center" scope="row " style="width: 5%; ">Thao tác</th>
                                                                 </tr>
