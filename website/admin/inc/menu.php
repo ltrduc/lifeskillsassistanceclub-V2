@@ -189,9 +189,11 @@ $manageRegister = new manageRegister();
                     <li class="nav-item pcoded-menu-caption">
                         <label>Thao tác khác</label>
                     </li>
-                    <li class="nav-item">
-                        <a href="?q=changepassword" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Đổi mật khẩu</span></a>
-                    </li>
+                    <?php if (Session::get('level') != "050301") { ?>
+                        <li class="nav-item">
+                            <a href="?q=changepassword" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Đổi mật khẩu</span></a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <?php
                         if (isset($_GET['q']) && $_GET['q'] == 'logout') {

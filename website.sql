@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 27, 2021 lúc 05:15 AM
+-- Thời gian đã tạo: Th12 27, 2021 lúc 05:35 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.13
 
@@ -56,8 +56,14 @@ CREATE TABLE `tbl_attendances` (
 --
 
 CREATE TABLE `tbl_checkregister` (
-  `level` int(1) NOT NULL
+  `level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_checkregister`
+--
+
+INSERT INTO `tbl_checkregister` (`level`) VALUES (0);
 
 -- --------------------------------------------------------
 
@@ -206,26 +212,6 @@ CREATE TABLE `tbl_schoolyear` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_selective`
---
-
-CREATE TABLE `tbl_selective` (
-  `id` int(255) NOT NULL,
-  `idstudent` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `faculty` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `team` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content1` text COLLATE utf8_unicode_ci NOT NULL,
-  `content2` text COLLATE utf8_unicode_ci NOT NULL,
-  `content3` text COLLATE utf8_unicode_ci NOT NULL,
-  `content4` text COLLATE utf8_unicode_ci NOT NULL,
-  `content5` text COLLATE utf8_unicode_ci NOT NULL,
-  `content6` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `tbl_structure`
 --
 
@@ -344,12 +330,6 @@ ALTER TABLE `tbl_schoolyear`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tbl_selective`
---
-ALTER TABLE `tbl_selective`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `tbl_structure`
 --
 ALTER TABLE `tbl_structure`
@@ -366,100 +346,6 @@ ALTER TABLE `tbl_subjects`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `tbl_activityphoto`
---
-ALTER TABLE `tbl_activityphoto`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT cho bảng `tbl_attendances`
---
-ALTER TABLE `tbl_attendances`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT cho bảng `tbl_course`
---
-ALTER TABLE `tbl_course`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT cho bảng `tbl_device`
---
-ALTER TABLE `tbl_device`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT cho bảng `tbl_equipment`
---
-ALTER TABLE `tbl_equipment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT cho bảng `tbl_loanpayment`
---
-ALTER TABLE `tbl_loanpayment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `tbl_post`
---
-ALTER TABLE `tbl_post`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT cho bảng `tbl_postgenres`
---
-ALTER TABLE `tbl_postgenres`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT cho bảng `tbl_recruitment`
---
-ALTER TABLE `tbl_recruitment`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `tbl_schedule`
---
-ALTER TABLE `tbl_schedule`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
---
--- AUTO_INCREMENT cho bảng `tbl_schoolyear`
---
-ALTER TABLE `tbl_schoolyear`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT cho bảng `tbl_selective`
---
-ALTER TABLE `tbl_selective`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `tbl_structure`
---
-ALTER TABLE `tbl_structure`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `tbl_subjects`
---
-ALTER TABLE `tbl_subjects`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT cho bảng `tbl_user`
---
-ALTER TABLE `tbl_user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
