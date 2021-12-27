@@ -106,7 +106,7 @@ $manageRegister = new manageRegister();
                                     <li><a href="?q=statistical">Thống kê điểm danh</a></li>
                                 <?php } ?>
                             <?php } ?>
-                            <li><a href="?q=listcourse">Quản lí lịch học</a></li>
+                            <li><a href="?q=listcourse">Quản lý lịch học</a></li>
                         </ul>
                     </li>
 

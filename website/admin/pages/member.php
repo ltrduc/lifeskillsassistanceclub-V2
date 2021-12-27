@@ -157,7 +157,6 @@ if (isset($delMember)) {
                                                         <option value="Hành Chính">Ban Hành chính</option>
                                                         <option value="Nhân Sự">Ban Nhân sự</option>
                                                         <option value="Truyền Thông">Ban Truyền thông</option>
-                                                        <option value="void">Khác...</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6 mt-3">

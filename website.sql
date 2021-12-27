@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 27, 2021 lúc 05:35 AM
+-- Thời gian đã tạo: Th12 27, 2021 lúc 09:01 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.13
 
@@ -63,7 +63,8 @@ CREATE TABLE `tbl_checkregister` (
 -- Đang đổ dữ liệu cho bảng `tbl_checkregister`
 --
 
-INSERT INTO `tbl_checkregister` (`level`) VALUES (0);
+INSERT INTO `tbl_checkregister` (`level`) VALUES
+(0);
 
 -- --------------------------------------------------------
 
@@ -346,6 +347,94 @@ ALTER TABLE `tbl_subjects`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_activityphoto`
+--
+ALTER TABLE `tbl_activityphoto`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_attendances`
+--
+ALTER TABLE `tbl_attendances`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_device`
+--
+ALTER TABLE `tbl_device`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_equipment`
+--
+ALTER TABLE `tbl_equipment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_loanpayment`
+--
+ALTER TABLE `tbl_loanpayment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_post`
+--
+ALTER TABLE `tbl_post`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_postgenres`
+--
+ALTER TABLE `tbl_postgenres`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_recruitment`
+--
+ALTER TABLE `tbl_recruitment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_schedule`
+--
+ALTER TABLE `tbl_schedule`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_schoolyear`
+--
+ALTER TABLE `tbl_schoolyear`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_structure`
+--
+ALTER TABLE `tbl_structure`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_subjects`
+--
+ALTER TABLE `tbl_subjects`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

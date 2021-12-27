@@ -5,7 +5,7 @@
         if ($getQuanTrong && $getQuanTrong->num_rows > 0) {
         ?>
             <div class="widget_title widget_black">
-                <h2><a href="?q=category&posttype=Quan trọng">Tin quan trọng</a></h2>
+                <h2><a>Tin quan trọng</a></h2>
             </div>
         <?php } ?>
         <?php
@@ -41,7 +41,7 @@
         if ($getLichTruc && $getLichTruc->num_rows > 0) {
         ?>
             <div class="widget_title widget_black">
-                <h2><a href="?q=category&posttype=Lịch trực">Lịch trực</a></h2>
+                <h2><a>Lịch trực</a></h2>
             </div>
         <?php } ?>
         <?php

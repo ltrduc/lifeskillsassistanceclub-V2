@@ -18,7 +18,7 @@ if (isset($_GET["id"])) {
 
 if (isset($checkmanageCourse)) {
     echo $checkmanageCourse;
-    echo '<script> setTimeout(() => { window.location = "?q=showcourse&schoolyear=' . $schoolyear . '&semester=' . $semester . '&dates=' . $dates . '"; }, 1000); </script>';
+    echo '<script> setTimeout(() => { window.location = "?q=showcourse&schoolyear=' . $schoolyear . '&semesters=' . $semesters . '&dates=' . $dates . '"; }, 1000); </script>';
 }
 ?>
 <section class="pcoded-main-container">

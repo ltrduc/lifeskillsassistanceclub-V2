@@ -5,12 +5,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkAtyPhoto = $activityPhoto->deleteActivityPhoto($id);
+    $delAtyPhoto = $activityPhoto->deleteActivityPhoto($id);
+}
+
+if (isset($delAtyPhoto)) {
+    echo $delAtyPhoto;
+    echo "<script> setTimeout(() => { window.location = '?q=activityphoto'; }, 1000); </script>";
 }
 
 if (isset($checkAtyPhoto)) {
     echo $checkAtyPhoto;
-    echo "<script> setTimeout(() => { window.location = '?q=activityphoto'; }, 1000); </script>";
 }
 ?>
 
