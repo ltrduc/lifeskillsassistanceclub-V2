@@ -37,7 +37,7 @@ class manageMember
 
     public function countSelectiveMember()
     {
-        $query = "SELECT count(*) AS countselectivemember FROM tbl_recruitment";
+        $query = "SELECT count(*) AS countselectivemember FROM tbl_selective";
         $result = $this->db->select($query);
         $value = $result->fetch_assoc();
         return $value['countselectivemember'];
