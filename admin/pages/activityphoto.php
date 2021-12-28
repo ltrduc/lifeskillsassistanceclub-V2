@@ -1,18 +1,20 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checkAtyPhoto = $activityPhoto->setActivityPhoto();
+    if (isset($checkAtyPhoto)) {
+        echo $checkAtyPhoto;
+    }
 }
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkAtyPhoto = $activityPhoto->deleteActivityPhoto($id);
-}
-
-if (isset($checkAtyPhoto)) {
-    echo $checkAtyPhoto;
+    $delAtyPhoto = $activityPhoto->deleteActivityPhoto($id);
+    if (isset($delAtyPhoto)) {
+        echo $delAtyPhoto;
+        echo '<script>setTimeout(() => { window.location = "?q=activityphoto" }, 500); </script> ';
+    }
 }
 ?>
-
 <section class="pcoded-main-container">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
