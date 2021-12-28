@@ -75,10 +75,12 @@ class manageCourse
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
 
-        $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
-        return $alert;
+        return;
     }
 
     public function deleteStartDay($schoolyear, $semesters, $dates)
@@ -98,10 +100,12 @@ class manageCourse
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
 
-        $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
-        return $alert;
+        return;
     }
 
     public function getStartDay()

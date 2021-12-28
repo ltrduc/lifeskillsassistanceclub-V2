@@ -42,10 +42,12 @@ class manageStatistical
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
 
-        $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
-        return $alert;
+        return;
     }
 
     public function showStatistical($schoolyear, $semester)
@@ -93,9 +95,11 @@ class manageStatistical
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
 
-        $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
-        return $alert;
+        return;
     }
 }

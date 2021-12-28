@@ -22,7 +22,7 @@ class manageShoolYear
     public function setShoolYear($schoolyear)
     {
         $schoolyear = mysqli_real_escape_string($this->db->link, $this->fm->validation($schoolyear));
-        
+
         if (empty($schoolyear)) {
             $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
@@ -63,15 +63,17 @@ class manageShoolYear
         if ($result) {
             $query = "DELETE FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
             $result = $this->db->delete($query);
-            
+
             if ($result) {
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
-        
-        $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
-        return $alert;
+
+        return;
     }
 
     public function getShoolYear()

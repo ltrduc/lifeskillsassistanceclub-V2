@@ -91,7 +91,6 @@ class manageRegister
             return $alert;
         }
 
-
         $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
         return $alert;
     }
