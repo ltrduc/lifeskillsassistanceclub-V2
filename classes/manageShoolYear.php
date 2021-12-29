@@ -75,7 +75,7 @@ class manageShoolYear
 
     public function getShoolYear()
     {
-        $query = "SELECT * FROM `tbl_schoolyear` GROUP BY schoolyear ASC";
+        $query = "SELECT * FROM `tbl_schoolyear` GROUP BY schoolyear DESC";
         $result = $this->db->select($query);
         return $result;
     }

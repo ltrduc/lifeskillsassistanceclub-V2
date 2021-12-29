@@ -1,9 +1,9 @@
 <?php
 if (isset($_POST['setattendance'])) {
     if (empty($_POST['schoolyear']) || empty($_POST['semester']) || empty($_POST['date']) || empty($_POST['shift'])) {
-        echo '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+        echo '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
     } else if (empty($_POST['attendance'])) {
-        echo '<script> toastr.warning("Bạn chưa ghi nhận điểm danh cho thành viên nào!");</script>';
+        echo '<script> toastr.warning("Chưa có thành viên nào điểm danh!");</script>';
     } else {
         foreach ($_POST['attendance'] as $id => $attendance) {;
             $idstudent = $_POST['idstudent'][$id];
