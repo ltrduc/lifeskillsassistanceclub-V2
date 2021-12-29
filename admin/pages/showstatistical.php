@@ -1,6 +1,6 @@
 <?php
 if (
-    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) &&
+    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) ||
     (!isset($_GET['semester']) || $_GET['semester'] == NULL)
 ) {
     echo "<script>window.location='./?q=statistical';</script>";

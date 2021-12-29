@@ -10,6 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $checkmanageSubjects = $manageSubjects->deleteSubjects($subjects);
     }
 
+    if (isset($checkmanageSubjects)) {
+        echo $checkmanageSubjects;
+    }
+
     if (isset($_POST['addcourse'])) {
         $subjects = $_POST['subjects'];
         $group = $_POST['group'];
@@ -19,8 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $semester = $_POST['semester'];
         $schoolyear = $_POST['schoolyear'];
         $teacher = $_POST['teacher'];
-
         $checkmanageCourse = $manageCourse->setCourse($subjects, $group, $period, $local, $dates, $semester, $schoolyear, $teacher);
+    }
+
+    if (isset($checkmanageCourse)) {
+        echo $checkmanageCourse;
     }
 }
 
@@ -28,15 +35,11 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
     $schoolyear = $_GET['schoolyear'];
     $semesters = $_GET['semesters'];
     $dates = $_GET['dates'];
-    $checkmanageCourse = $manageCourse->deleteStartDay($schoolyear, $semesters, $dates);
-}
-
-if (isset($checkmanageSubjects)) {
-    echo $checkmanageSubjects;
-}
-
-if (isset($checkmanageCourse)) {
-    echo $checkmanageCourse;
+    $delmanageCourse = $manageCourse->deleteStartDay($schoolyear, $semesters, $dates);
+    if (isset($delmanageCourse)) {
+        echo $delmanageCourse;
+        echo '<script>setTimeout(() => { window.location = "?q=listcourse" }, 500); </script> ';
+    }
 }
 ?>
 
@@ -244,7 +247,7 @@ if (isset($checkmanageCourse)) {
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
-                                <div class="card-header" style="padding-bottom: 10px;">
+                                    <div class="card-header" style="padding-bottom: 10px;">
                                         <div class="float-left">
                                             DANH SÁCH LỊCH HỌC
                                         </div>

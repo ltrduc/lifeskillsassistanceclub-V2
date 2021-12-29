@@ -1,8 +1,8 @@
 <?php
 if (
-    (!isset($_GET['showcourse']) || $_GET['showcourse'] == NULL) &&
-    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) &&
-    (!isset($_GET['semesters']) || $_GET['semesters'] == NULL)
+    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) ||
+    (!isset($_GET['semesters']) || $_GET['semesters'] == NULL) ||
+    (!isset($_GET['dates']) || $_GET['dates'] == NULL)
 ) {
     echo "<script>window.location='./?q=listcourse';</script>";
 } else {
@@ -13,12 +13,11 @@ if (
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
-
     $checkmanageCourse = $manageCourse->deleteCourse($id);
-}
-
-if (isset($checkmanageCourse)) {
-    echo $checkmanageCourse;
+    if (isset($checkmanageCourse)) {
+        echo $checkmanageCourse;
+        echo '<script>setTimeout(() => { window.location = "?q=showcourse&schoolyear=' . $schoolyear . '&semesters=' . $semesters . '&dates=' . $dates . '" }, 500); </script> ';
+    }
 }
 ?>
 <section class="pcoded-main-container">

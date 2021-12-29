@@ -75,7 +75,7 @@ class manageSubjects
 
     public function getSubjects()
     {
-        $query = "SELECT * FROM `tbl_subjects`";
+        $query = "SELECT * FROM `tbl_subjects` ORDER BY subjects ASC";
         $result = $this->db->select($query);
         return $result;
     }

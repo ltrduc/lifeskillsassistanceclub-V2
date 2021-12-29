@@ -1,6 +1,6 @@
 <?php
 if (
-    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) &&
+    (!isset($_GET['schoolyear']) || $_GET['schoolyear'] == NULL) ||
     (!isset($_GET['semester']) || $_GET['semester'] == NULL)
 ) {
     echo "<script>window.location='./?q=statistical';</script>";
@@ -11,13 +11,13 @@ if (
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
     $checkmanageStatistical = $manageStatistical->deleteDetailedStatistics($id);
+    if (isset($checkmanageStatistical)) {
+        echo $checkmanageStatistical;
+        echo '<script>setTimeout(() => { window.location = "?q=detailedstatistics&schoolyear=' . $schoolyear . '&semester=' . $semester . '" }, 500); </script> ';
+    }
 }
 
-if (isset($checkmanageStatistical)) {
-    echo $checkmanageStatistical;
-}
 ?>
 <section class="pcoded-main-container">
     <div class="pcoded-wrapper">

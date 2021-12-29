@@ -9,15 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $shift3 = "";
         $shift4 = "";
 
-        if (isset($_POST['shift1']))
-            $shift1 = $_POST['shift1'];
-        if (isset($_POST['shift2']))
-            $shift2 = $_POST['shift2'];
-        if (isset($_POST['shift3']))
-            $shift3 = $_POST['shift3'];
-        if (isset($_POST['shift4']))
-            $shift4 = $_POST['shift4'];
-
+        if (isset($_POST['shift1'])) $shift1 = $_POST['shift1'];
+        if (isset($_POST['shift2']))  $shift2 = $_POST['shift2'];
+        if (isset($_POST['shift3'])) $shift3 = $_POST['shift3'];
+        if (isset($_POST['shift4'])) $shift4 = $_POST['shift4'];
         $checkSchedule = $manageSchedule->setSchedule($idstudent, $session, $shift1, $shift2, $shift3, $shift4);
     }
 
@@ -25,15 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $team = "Truyền Thông";
         $checkSchedule = $manageSchedule->deleteScheduleTeam($team);
     }
+
+    if (isset($checkSchedule)) {
+        echo $checkSchedule;
+    }
 }
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkSchedule = $manageSchedule->deleteScheduleId($id);
-}
-
-if (isset($checkSchedule)) {
-    echo $checkSchedule;
+    $delSchedule = $manageSchedule->deleteScheduleId($id);
+    if (isset($delSchedule)) {
+        echo $delSchedule;
+        echo '<script>setTimeout(() => { window.location = "?q=schedulett" }, 500); </script> ';
+    }
 }
 ?>
 

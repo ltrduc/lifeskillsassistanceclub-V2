@@ -6,13 +6,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member'])) {
     $team = $_POST['team'];
     $phone = $_POST['phone'];
     $facebook = $_POST['facebook'];
-
     $checkMember = $manageMember->setMember($idstudent, $fullname, $birthday, $team, $phone, $facebook);
 }
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkMember = $manageMember->deletePersonnel($id);
+    $delMember = $manageMember->deletePersonnel($id);
+    if (isset($delMember)) {
+        echo $delMember;
+        echo '<script>setTimeout(() => { window.location = "?q=member" }, 500); </script> ';
+    }
 }
 
 if (isset($checkMember)) {

@@ -11,25 +11,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checkloanPayment = $loanPayment->setLoanPayment($name, $phone, $devices, $quantity, $begin, $end, $reason);
 }
 
+if (isset($checkloanPayment)) {
+    echo $checkloanPayment;
+}
+
 if (isset($_GET['warningId'])) {
     $id = $_GET['warningId'];
     $status = "Chưa trả";
-    $checkloanPayment = $loanPayment->statusLoanPayment($id, $status);
+    $c_loanPayment = $loanPayment->statusLoanPayment($id, $status);
 }
 
 if (isset($_GET['successId'])) {
     $id = $_GET['successId'];
     $status = "Đã trả";
-    $checkloanPayment = $loanPayment->statusLoanPayment($id, $status);
+    $c_loanPayment = $loanPayment->statusLoanPayment($id, $status);
 }
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $checkloanPayment = $loanPayment->deleteLoanPayment($id);
+    $c_loanPayment = $loanPayment->deleteLoanPayment($id);
 }
 
-if (isset($checkloanPayment)) {
-    echo $checkloanPayment;
+if (isset($c_loanPayment)) {
+    echo $c_loanPayment;
+    echo '<script>setTimeout(() => { window.location = "?q=loanpayment" }, 500); </script> ';
 }
 ?>
 

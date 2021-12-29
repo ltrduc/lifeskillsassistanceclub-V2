@@ -15,15 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $originalnumber = $_POST['originalnumber'];
         $checkEquipment = $manageEquipment->setEquipment($typedevice, $originalnumber);
     }
+
+    if (isset($checkEquipment)) {
+        echo $checkEquipment;
+    }
 }
 
 if (isset($_GET['typedevice'])) {
     $typedevice = $_GET['typedevice'];
-    $checkEquipment = $manageEquipment->deleteEquipment($typedevice);
-}
-
-if (isset($checkEquipment)) {
-    echo $checkEquipment;
+    $delEquipment = $manageEquipment->deleteEquipment($typedevice);
+    if (isset($delEquipment)) {
+        echo $delEquipment;
+        echo '<script>setTimeout(() => { window.location = "?q=equipment" }, 500); </script> ';
+    }
 }
 ?>
 
