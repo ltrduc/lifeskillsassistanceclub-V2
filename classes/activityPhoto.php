@@ -71,7 +71,7 @@ class activityPhoto
 
             $query = "DELETE FROM `tbl_activityphoto` WHERE id = '$id'";
             $result = $this->db->delete($query);
-
+            
             if ($result) {
                 $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;

@@ -27,7 +27,7 @@ class loginMyAccount
 		$password = md5(mysqli_real_escape_string($this->db->link, $this->fm->validation($password)));
 
 		if (empty($user) || empty($password)) {
-			$alert = "Vui lòng không được để trông thông tin!";
+			$alert = "Vui lòng không được để trông dữ liệu!";
 			return $alert;
 		}
 

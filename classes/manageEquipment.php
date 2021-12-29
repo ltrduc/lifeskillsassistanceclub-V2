@@ -24,32 +24,30 @@ class manageEquipment
      */
     public function setTypedevice($device)
     {
-        $device = $this->fm->validation($device);
-        $device = mysqli_real_escape_string($this->db->link, $device);
+        $device = mysqli_real_escape_string($this->db->link, $this->fm->validation($device));
 
         if (empty($device)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM tbl_device WHERE device = '$device'";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $alert = '<script> toastr.warning("Lại thiết bị đã tồn tại!");</script>';
-                return $alert;
-            } else {
-                $query = "INSERT INTO `tbl_device`(`device`) VALUES ('$device')";
-                $result = $this->db->insert($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã thêm thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã thêm thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM tbl_device WHERE device = '$device'";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $alert = '<script> toastr.warning("Loại thiết bị đã tồn tại!");</script>';
+            return $alert;
+        }
+
+        $query = "INSERT INTO `tbl_device`(`device`) VALUES ('$device')";
+        $result = $this->db->insert($query);
+
+        if ($result) {
+            $alert = '<script> toastr.success("Đã thêm dữ liệu thành công!");</script>';
+            return $alert;
+        }
+        $alert = '<script> toastr.warning("Đã thêm dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function getTypedevice()
@@ -61,26 +59,28 @@ class manageEquipment
 
     public function deleteTypedevice($device)
     {
+        $device = mysqli_real_escape_string($this->db->link, $this->fm->validation($device));
+
         if (empty($device)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM tbl_device WHERE device = '$device'";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $query = "DELETE FROM tbl_device WHERE device = '$device'";
-                $result = $this->db->delete($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã xóa thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã xóa thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM tbl_device WHERE device = '$device'";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $query = "DELETE FROM tbl_device WHERE device = '$device'";
+            $result = $this->db->delete($query);
+
+            if ($result) {
+                $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
+                return $alert;
+            }
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
+        }
+        return;
     }
 
     /**
@@ -88,110 +88,87 @@ class manageEquipment
      */
     public function setEquipment($typedevice, $originalnumber)
     {
-        $typedevice = $this->fm->validation($typedevice);
-        $originalnumber = $this->fm->validation($originalnumber);
-
-        $typedevice = mysqli_real_escape_string($this->db->link, $typedevice);
-        $originalnumber = mysqli_real_escape_string($this->db->link, $originalnumber);
+        $typedevice = mysqli_real_escape_string($this->db->link, $this->fm->validation($typedevice));
+        $originalnumber = mysqli_real_escape_string($this->db->link, $this->fm->validation($originalnumber));
 
         if (empty($typedevice) || empty($originalnumber)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "INSERT INTO `tbl_equipment`(`typedevice`, `originalnumber`) 
-            VALUES ('$typedevice','$originalnumber')";
-
-            $result = $this->db->insert($query);
-            if ($result != false) {
-                $alert = '<script> toastr.success("Đã thêm thành công!");</script>';
-                return $alert;
-            } else {
-                $alert = '<script> toastr.warning("Đã thêm thất bại!");</script>';
-                return $alert;
-            }
         }
+
+        $query = "INSERT INTO `tbl_equipment`(`typedevice`, `originalnumber`) 
+        VALUES ('$typedevice','$originalnumber')";
+        $result = $this->db->insert($query);
+
+        if ($result) {
+            $alert = '<script> toastr.success("Đã thêm dữ liệu thành công!");</script>';
+            return $alert;
+        }
+        $alert = '<script> toastr.warning("Đã thêm dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function updateEquipment($typedevice, $originalnumber, $donotuse, $normal, $using, $broken, $lost)
     {
-        $typedevice = $this->fm->validation($typedevice);
-        $originalnumber = $this->fm->validation($originalnumber);
-        $donotuse = $this->fm->validation($donotuse);
-        $normal = $this->fm->validation($normal);
-        $using = $this->fm->validation($using);
-        $broken = $this->fm->validation($broken);
-        $lost = $this->fm->validation($lost);
-
-        $typedevice = mysqli_real_escape_string($this->db->link, $typedevice);
-        $originalnumber = mysqli_real_escape_string($this->db->link, $originalnumber);
-        $donotuse = mysqli_real_escape_string($this->db->link, $donotuse);
-        $normal = mysqli_real_escape_string($this->db->link, $normal);
-        $using = mysqli_real_escape_string($this->db->link, $using);
-        $broken = mysqli_real_escape_string($this->db->link, $broken);
-        $lost = mysqli_real_escape_string($this->db->link, $lost);
+        $typedevice = mysqli_real_escape_string($this->db->link, $this->fm->validation($typedevice));
+        $originalnumber = mysqli_real_escape_string($this->db->link, $this->fm->validation($originalnumber));
+        $donotuse = mysqli_real_escape_string($this->db->link, $this->fm->validation($donotuse));
+        $normal = mysqli_real_escape_string($this->db->link, $this->fm->validation($normal));
+        $using = mysqli_real_escape_string($this->db->link, $this->fm->validation($using));
+        $broken = mysqli_real_escape_string($this->db->link, $this->fm->validation($broken));
+        $lost = mysqli_real_escape_string($this->db->link, $this->fm->validation($lost));
 
         $query = "DELETE FROM `tbl_equipment` WHERE typedevice = '$typedevice'";
         $result = $this->db->delete($query);
 
         $query = "INSERT INTO `tbl_equipment`(`typedevice`, `originalnumber`, `using`, `donotuse`, `normal`, `broken`, `lost`) 
-            VALUES ('$typedevice','$originalnumber', '$using', '$donotuse', '$normal', '$broken', '$lost')";
+        VALUES ('$typedevice','$originalnumber', '$using', '$donotuse', '$normal', '$broken', '$lost')";
         $result = $this->db->insert($query);
 
-        if ($result != false) {
-            $alert = '<script> toastr.success("Cập nhật thành công!");</script>';
-            return $alert;
-        } else {
-            $alert = '<script> toastr.warning("Cập nhật thất bại!");</script>';
+        if ($result) {
+            $alert = '<script> toastr.success("Đã cập nhật dữ liệu thành công!");</script>';
             return $alert;
         }
+        $alert = '<script> toastr.warning("Đã cập nhật dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function deleteEquipment($typedevice)
     {
+        $typedevice = mysqli_real_escape_string($this->db->link, $this->fm->validation($typedevice));
         $query = "SELECT * FROM tbl_equipment WHERE typedevice = '$typedevice'";
         $result = $this->db->select($query);
 
-        if ($result && $result->num_rows > 0) {
+        if ($result) {
             $query = "DELETE FROM tbl_equipment WHERE typedevice = '$typedevice'";
             $result = $this->db->delete($query);
 
-            if ($result != false) {
-                $alert = '<script> toastr.success("Đã xóa thành công!");</script>';
-                return $alert;
-            } else {
-                $alert = '<script> toastr.warning("Đã xóa thất bại!");</script>';
+            if ($result) {
+                $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
+        return;
     }
 
     public function getEquipment()
     {
-        $query = "SELECT `typedevice`, 
-        SUM(`originalnumber`) AS `originalnumber`,
-        SUM(`using`) AS `using`,
-        SUM(`originalnumber`) - `using` AS `donotuse`,
-        SUM(`originalnumber`) - SUM(`broken`) - SUM(`lost`) AS `normal`,
-        SUM(`broken`) AS `broken`,
-        SUM(`lost`) AS `lost`
-        FROM `tbl_equipment`
-        GROUP BY `typedevice`";
-
+        $query = "SELECT `typedevice`, SUM(`originalnumber`) AS `originalnumber`, SUM(`using`) AS `using`,
+        SUM(`originalnumber`) - `using` AS `donotuse`, SUM(`originalnumber`) - SUM(`broken`) - SUM(`lost`) AS `normal`,
+        SUM(`broken`) AS `broken`, SUM(`lost`) AS `lost` FROM `tbl_equipment` GROUP BY `typedevice`";
         $result = $this->db->select($query);
         return $result;
     }
 
     public function getEquipmentId($typedevice)
     {
-        $query = "SELECT `typedevice`, 
-        SUM(`originalnumber`) AS `originalnumber`,
-        SUM(`using`) AS `using`,
-        SUM(`originalnumber`) - `using` AS `donotuse`,
-        SUM(`originalnumber`) - SUM(`broken`) - SUM(`lost`) AS `normal`,
-        SUM(`broken`) AS `broken`,
-        SUM(`lost`) AS `lost`
-        FROM `tbl_equipment` 
-        WHERE `typedevice` = '$typedevice'
+        $typedevice = mysqli_real_escape_string($this->db->link, $this->fm->validation($typedevice));
+
+        $query = "SELECT `typedevice`, SUM(`originalnumber`) AS `originalnumber`, SUM(`using`) AS `using`,
+        SUM(`originalnumber`) - `using` AS `donotuse`, SUM(`originalnumber`) - SUM(`broken`) - SUM(`lost`) AS `normal`,
+        SUM(`broken`) AS `broken`, SUM(`lost`) AS `lost` FROM `tbl_equipment` WHERE `typedevice` = '$typedevice'
         GROUP BY `typedevice`";
 
         $result = $this->db->select($query);

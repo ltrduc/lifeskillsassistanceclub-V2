@@ -21,56 +21,56 @@ class manageShoolYear
 
     public function setShoolYear($schoolyear)
     {
-        $schoolyear = $this->fm->validation($schoolyear);
-        $schoolyear = mysqli_real_escape_string($this->db->link, $schoolyear);
+        $schoolyear = mysqli_real_escape_string($this->db->link, $this->fm->validation($schoolyear));
 
         if (empty($schoolyear)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $alert = '<script> toastr.warning("Năm học đã tồn tại!");</script>';
-                return $alert;
-            } else {
-                $query = "INSERT INTO `tbl_schoolyear`(`schoolyear`) VALUES ('$schoolyear')";
-                $result = $this->db->insert($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã thêm thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã thêm thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $alert = '<script> toastr.warning("Năm học đã tồn tại!");</script>';
+            return $alert;
+        }
+
+        $query = "INSERT INTO `tbl_schoolyear`(`schoolyear`) VALUES ('$schoolyear')";
+        $result = $this->db->insert($query);
+
+        if ($result) {
+            $alert = '<script> toastr.success("Đã thêm dữ liệu thành công!");</script>';
+            return $alert;
+        }
+        $alert = '<script> toastr.warning("Đã thêm dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function deleteShoolYear($schoolyear)
     {
+        $schoolyear = mysqli_real_escape_string($this->db->link, $this->fm->validation($schoolyear));
+
         if (empty($schoolyear)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $query = "DELETE FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
-                $result = $this->db->delete($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã xóa thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã xóa thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $query = "DELETE FROM `tbl_schoolyear` WHERE schoolyear = '$schoolyear'";
+            $result = $this->db->delete($query);
+
+            if ($result) {
+                $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
+                return $alert;
+            }
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
+        }
+        return;
     }
 
     public function getShoolYear()

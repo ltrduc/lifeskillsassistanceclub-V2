@@ -56,44 +56,37 @@ class manageMember
      */
     public function setMember($idstudent, $fullname, $birthday, $team, $phone, $facebook)
     {
-        $idstudent = $this->fm->validation($idstudent);
-        $fullname = $this->fm->validation($fullname);
-        $birthday = $this->fm->validation($birthday);
-        $team = $this->fm->validation($team);
-        $phone = $this->fm->validation($phone);
-        $facebook = $this->fm->validation($facebook);
-
-        $idstudent = mysqli_real_escape_string($this->db->link, $idstudent);
-        $fullname = mysqli_real_escape_string($this->db->link, $fullname);
-        $birthday = mysqli_real_escape_string($this->db->link, $birthday);
-        $team = mysqli_real_escape_string($this->db->link, $team);
-        $phone = mysqli_real_escape_string($this->db->link, $phone);
-        $facebook = mysqli_real_escape_string($this->db->link, $facebook);
+        $idstudent = mysqli_real_escape_string($this->db->link, $this->fm->validation($idstudent));
+        $fullname = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
+        $birthday = mysqli_real_escape_string($this->db->link, $this->fm->validation($birthday));
+        $team = mysqli_real_escape_string($this->db->link, $this->fm->validation($team));
+        $phone = mysqli_real_escape_string($this->db->link, $this->fm->validation($phone));
+        $facebook = mysqli_real_escape_string($this->db->link, $this->fm->validation($facebook));
 
         if (empty($idstudent) || empty($fullname) || empty($team)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM tbl_user WHERE idstudent = '$idstudent' LIMIT 1";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $alert = '<script> toastr.warning(" ' . $idstudent . ' đã tồn tại!");</script>';
-                return $alert;
-            } else {
-                $query = "INSERT INTO `tbl_user`(`user`, `password`, `idstudent`, `fullname`, `birthday`, `facebook`, `team`, `phone`, `level`, `feature`)
-                VALUES ('$idstudent', '$idstudent', '$idstudent', '$fullname', ' $birthday', '$facebook', '$team', '$phone', '3', '0')";
-                $result = $this->db->insert($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã thêm thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã thêm thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM tbl_user WHERE idstudent = '$idstudent' LIMIT 1";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $alert = '<script> toastr.warning(" ' . $idstudent . ' đã tồn tại!");</script>';
+            return $alert;
+        }
+
+        $password = md5($idstudent);
+        $query = "INSERT INTO `tbl_user`(`user`, `password`, `idstudent`, `fullname`, `birthday`, `facebook`, `team`, `phone`, `level`, `feature`)
+        VALUES ('$idstudent', '$password', '$idstudent', '$fullname', ' $birthday', '$facebook', '$team', '$phone', '3', '0')";
+        $result = $this->db->insert($query);
+
+        if ($result) {
+            $alert = '<script> toastr.success("Đã thêm dữ liệu thành công!");</script>';
+            return $alert;
+        }
+        $alert = '<script> toastr.warning("Đã thêm dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function getMember()
@@ -108,44 +101,37 @@ class manageMember
      */
     public function setCollaborators($idstudent, $fullname, $birthday, $team, $phone, $facebook)
     {
-        $idstudent = $this->fm->validation($idstudent);
-        $fullname = $this->fm->validation($fullname);
-        $birthday = $this->fm->validation($birthday);
-        $team = $this->fm->validation($team);
-        $phone = $this->fm->validation($phone);
-        $facebook = $this->fm->validation($facebook);
-
-        $idstudent = mysqli_real_escape_string($this->db->link, $idstudent);
-        $fullname = mysqli_real_escape_string($this->db->link, $fullname);
-        $birthday = mysqli_real_escape_string($this->db->link, $birthday);
-        $team = mysqli_real_escape_string($this->db->link, $team);
-        $phone = mysqli_real_escape_string($this->db->link, $phone);
-        $facebook = mysqli_real_escape_string($this->db->link, $facebook);
+        $idstudent = mysqli_real_escape_string($this->db->link, $this->fm->validation($idstudent));
+        $fullname = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
+        $birthday = mysqli_real_escape_string($this->db->link, $this->fm->validation($birthday));
+        $team = mysqli_real_escape_string($this->db->link, $this->fm->validation($team));
+        $phone = mysqli_real_escape_string($this->db->link, $this->fm->validation($phone));
+        $facebook = mysqli_real_escape_string($this->db->link, $this->fm->validation($facebook));
 
         if (empty($idstudent) || empty($fullname)) {
-            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ thông tin!");</script>';
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
             return $alert;
-        } else {
-            $query = "SELECT * FROM tbl_user WHERE idstudent = '$idstudent' LIMIT 1";
-            $result = $this->db->select($query);
-
-            if ($result && $result->num_rows > 0) {
-                $alert = '<script> toastr.warning(" ' . $idstudent . ' đã tồn tại!");</script>';
-                return $alert;
-            } else {
-                $query = "INSERT INTO `tbl_user`(`user`, `password`, `idstudent`, `fullname`, `birthday`, `facebook`, `team`, `phone`, `level`, `feature`)
-                VALUES ('$idstudent', '$idstudent', '$idstudent', '$fullname', ' $birthday', '$facebook', '$team', '$phone', '3', '1')";
-                $result = $this->db->insert($query);
-
-                if ($result != false) {
-                    $alert = '<script> toastr.success("Đã thêm thành công!");</script>';
-                    return $alert;
-                } else {
-                    $alert = '<script> toastr.warning("Đã thêm thất bại!");</script>';
-                    return $alert;
-                }
-            }
         }
+
+        $query = "SELECT * FROM tbl_user WHERE idstudent = '$idstudent' LIMIT 1";
+        $result = $this->db->select($query);
+
+        if ($result) {
+            $alert = '<script> toastr.warning(" ' . $idstudent . ' đã tồn tại!");</script>';
+            return $alert;
+        }
+
+        $password = md5($idstudent);
+        $query = "INSERT INTO `tbl_user`(`user`, `password`, `idstudent`, `fullname`, `birthday`, `facebook`, `team`, `phone`, `level`, `feature`)
+        VALUES ('$idstudent', '$password', '$idstudent', '$fullname', ' $birthday', '$facebook', '$team', '$phone', '3', '1')";
+        $result = $this->db->insert($query);
+
+        if ($result) {
+            $alert = '<script> toastr.success("Đã thêm dữ liệu thành công!");</script>';
+            return $alert;
+        }
+        $alert = '<script> toastr.warning("Đã thêm dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function getCollaborators()
@@ -160,60 +146,49 @@ class manageMember
      */
     public function updatePersonnel($id, $idstudent, $fullname, $birthday, $team, $phone, $facebook)
     {
-        $idstudent = $this->fm->validation($idstudent);
-        $fullname = $this->fm->validation($fullname);
-        $birthday = $this->fm->validation($birthday);
-        $team = $this->fm->validation($team);
-        $phone = $this->fm->validation($phone);
-        $facebook = $this->fm->validation($facebook);
+        $id = mysqli_real_escape_string($this->db->link, $this->fm->validation($id));
+        $idstudent = mysqli_real_escape_string($this->db->link, $this->fm->validation($idstudent));
+        $fullname = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
+        $birthday = mysqli_real_escape_string($this->db->link, $this->fm->validation($birthday));
+        $team = mysqli_real_escape_string($this->db->link, $this->fm->validation($team));
+        $phone = mysqli_real_escape_string($this->db->link, $this->fm->validation($phone));
+        $facebook = mysqli_real_escape_string($this->db->link, $this->fm->validation($facebook));
 
-        $id = mysqli_real_escape_string($this->db->link, $id);
-        $idstudent = mysqli_real_escape_string($this->db->link, $idstudent);
-        $fullname = mysqli_real_escape_string($this->db->link, $fullname);
-        $birthday = mysqli_real_escape_string($this->db->link, $birthday);
-        $team = mysqli_real_escape_string($this->db->link, $team);
-        $phone = mysqli_real_escape_string($this->db->link, $phone);
-        $facebook = mysqli_real_escape_string($this->db->link, $facebook);
-
-        $query = "UPDATE `tbl_user` SET
-        `fullname`='$fullname',
-        `birthday`='$birthday',
-        `facebook`='$facebook',
-        `team`='$team',
-        `phone`='$phone' WHERE `id` = '$id' AND idstudent = '$idstudent'";
-
+        $query = "UPDATE `tbl_user` SET `fullname`='$fullname', `birthday`='$birthday', `facebook`='$facebook',
+        `team`='$team', `phone`='$phone' WHERE `id` = '$id' AND idstudent = '$idstudent'";
         $result = $this->db->update($query);
 
-        if ($result == false) {
-            $alert = '<script> toastr.warning("Cập nhật không thành công!");</script>';
-            return $alert;
-        } else {
-            $alert = '<script> toastr.success("Cập nhật thành công!");</script>';
+        if ($result) {
+            $alert = '<script> toastr.success("Đã cập nhật dữ liệu thành công!");</script>';
             return $alert;
         }
+        $alert = '<script> toastr.warning("Đã cập nhật dữ liệu thất bại!");</script>';
+        return $alert;
     }
 
     public function deletePersonnel($id)
     {
+        $id = mysqli_real_escape_string($this->db->link, $this->fm->validation($id));
         $query = "SELECT * FROM tbl_user WHERE id = '$id'";
         $result = $this->db->select($query);
 
-        if ($result && $result->num_rows > 0) {
+        if ($result) {
             $query = "DELETE FROM `tbl_user` WHERE id = '$id'";
             $result = $this->db->delete($query);
 
-            if ($result != false) {
-                $alert = '<script> toastr.success("Đã xóa thành công!");</script>';
-                return $alert;
-            } else {
-                $alert = '<script> toastr.warning("Đã xóa thất bại!");</script>';
+            if ($result) {
+                $alert = '<script> toastr.success("Đã xóa dữ liệu thành công!");</script>';
                 return $alert;
             }
+            $alert = '<script> toastr.warning("Đã xóa dữ liệu thất bại!");</script>';
+            return $alert;
         }
+        return;
     }
 
     public function getPersonnelId($id)
     {
+        $id = mysqli_real_escape_string($this->db->link, $this->fm->validation($id));
         $query = "SELECT * FROM tbl_user WHERE id = '$id'";
         $result = $this->db->select($query);
         return $result;
