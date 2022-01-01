@@ -9,6 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $postgenre = $_POST['postgenre'];
         $checkPostgenre = $managePost->deletePostgenres($postgenre);
     }
+
+    if (isset($checkPostgenre)) {
+        echo $checkPostgenre;
+    }
 }
 
 if (isset($_GET['warningId'])) {
