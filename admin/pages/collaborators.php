@@ -141,7 +141,7 @@ if (isset($checkCollaborators)) {
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="idstudent">Mã số sinh viên:</label>
-                                                    <input type="text" class="form-control" name="idstudent" id="idstudent" placeholder="5190----">
+                                                    <input type="text" class="form-control" name="idstudent" id="idstudent" placeholder="51900001">
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="birthday">Ngày sinh:</label>
@@ -154,11 +154,11 @@ if (isset($checkCollaborators)) {
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="phone">Số điện thoại:</label>
-                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Nếu không có số điện thoại thì để: 0">
+                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="0377642847">
                                                 </div>
                                                 <div class="col-6 mt-3">
                                                     <label for="facebook">Link facebook:</label>
-                                                    <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Nếu không có Facebook thì để: Null">
+                                                    <input type="text" class="form-control" name="facebook" id="facebook" placeholder="https://www.facebook.com/nguyenvana">
                                                 </div>
                                             </div>
                                             <div class="modal-footer mt-3">

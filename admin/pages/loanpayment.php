@@ -112,8 +112,8 @@ if (isset($c_loanPayment)) {
                                                                             <td><?php echo $value['phone']; ?></td>
                                                                             <td><?php echo $value['devices']; ?></td>
                                                                             <td class="text-center"><?php echo $value['quantity']; ?></td>
-                                                                            <td><?php echo $value['begin']; ?></td>
-                                                                            <td><?php echo $value['end']; ?></td>
+                                                                            <td><?php echo $fm->formatDate($value['begin']); ?></td>
+                                                                            <td><?php echo $fm->formatDate($value['end']); ?></td>
                                                                             <td><?php echo $value['reason']; ?></td>
                                                                             <?php
                                                                             if ($value['status'] == 'Chưa trả') {
@@ -190,7 +190,7 @@ if (isset($c_loanPayment)) {
                                                         <div class="col-3 mt-3">
                                                             <div class="form-group">
                                                                 <label for="quantity">Số lượng:</label>
-                                                                <input type="text" class="form-control" name="quantity" id="quantity">
+                                                                <input type="number" class="form-control" name="quantity" id="quantity">
                                                             </div>
                                                         </div>
                                                         <div class="col-4 mt-3">

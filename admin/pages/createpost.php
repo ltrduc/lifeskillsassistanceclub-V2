@@ -71,7 +71,7 @@ if (isset($checkPost)) {
                                                     <div class="form-group">
                                                         <label for="postgenre">Thể loại: </label>
                                                         <select name="postgenre" class="custom-select">
-                                                            <option selected="" value="">---Chọn Thể Loại---</option>
+                                                            <option selected="" value="" class="font-weight-bold">Chọn thể loại</option>
                                                             <?php
                                                             $getPostgenres = $managePost->getPostgenres();
                                                             if ($getPostgenres && $getPostgenres->num_rows > 0) {
@@ -91,7 +91,7 @@ if (isset($checkPost)) {
                                                     <div class="form-group">
                                                         <label for="posttype">Loại Tin Tức: </label>
                                                         <select name="posttype" class="custom-select">
-                                                            <option selected="" value="">---Chọn Loại Tin Tức---</option>
+                                                            <option selected="" value="" class="font-weight-bold">Chọn loại tin tức</option>
                                                             <option value="Quan trọng">Quan trọng</option>
                                                             <option value="Nổi bật">Nổi bật</option>
                                                             <option value="Không nổi bật">Không nổi bật</option>

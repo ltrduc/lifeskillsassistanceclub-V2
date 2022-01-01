@@ -13,21 +13,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['warningId'])) {
     $id = $_GET['warningId'];
-    $checkPostgenre = $managePost->statusPost($id, 1);
+    $c_checkPostgenre = $managePost->statusPost($id, 1);
 }
 
 if (isset($_GET['successId'])) {
     $id = $_GET['successId'];
-    $checkPostgenre = $managePost->statusPost($id, 0);
+    $c_checkPostgenre = $managePost->statusPost($id, 0);
 }
 
 if (isset($_GET['idPost'])) {
     $idPost = $_GET['idPost'];
-    $checkPostgenre = $managePost->deletePost($idPost);
+    $c_checkPostgenre = $managePost->deletePost($idPost);
 }
 
-if (isset($checkPostgenre)) {
-    echo $checkPostgenre;
+if (isset($c_checkPostgenre)) {
+    echo $c_checkPostgenre;
+    echo '<script>setTimeout(() => { window.location = "?q=post" }, 500); </script> ';
 }
 ?>
 
@@ -52,7 +53,7 @@ if (isset($checkPostgenre)) {
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <div class="float-right">
-                                            <button class="btn btn-warning" data-toggle="modal" data-target="#postgenre"><i class="fa fa-edit"></i>&nbsp; Thể loại</button>
+                                            <button class="btn btn-warning" data-toggle="modal" data-target="#postgenre"><i class="fa fa-book"></i>&nbsp; Thể loại bài đăng</button>
                                             <a class="btn btn-primary" style="color: white;" href="?q=createpost"><i class="fa fa-edit"></i>&nbsp; Tạo bài đăng</a>
                                         </div>
                                     </div>
@@ -160,8 +161,7 @@ if (isset($checkPostgenre)) {
                                                             <div class="form-group">
                                                                 <label for="postgenre">Xóa thể loại:</label>
                                                                 <select name="postgenre" class="custom-select">
-                                                                    <option selected="" value="">---Chọn Thể Loại---
-                                                                    </option>
+                                                                    <option selected="" value="" class="font-weight-bold">Chọn thể loại</option>
                                                                     <?php
                                                                     $getPostgenres = $managePost->getPostgenres();
                                                                     if ($getPostgenres && $getPostgenres->num_rows > 0) {

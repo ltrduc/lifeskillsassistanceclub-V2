@@ -61,34 +61,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="row">
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="fullname">Họ và Tên:</label>
-                                                        <input type="text" class="form-control" name="fullname" id="fullname" aria-describedby="warning1" placeholder="Nhập thông tin..." required value="<?php echo $value['fullname'] ?>">
+                                                        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Nguyễn Văn A" value="<?php echo $value['fullname'] ?>">
                                                     </div>
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="idstudent">Mã số sinh viên:</label>
-                                                        <input type="text" class="form-control" name="idstudent" id="idstudent" aria-describedby="warning2" placeholder="Nhập thông tin..." disabled value="<?php echo $value['idstudent'] ?>">
-                                                        <input type="hidden" class="form-control" name="idstudent" id="idstudent" aria-describedby="warning2" placeholder="Nhập thông tin..." required value="<?php echo $value['idstudent'] ?>">
+                                                        <input type="text" class="form-control" name="idstudent" id="idstudent" placeholder="51900001" disabled value="<?php echo $value['idstudent'] ?>">
+                                                        <input type="hidden" class="form-control" name="idstudent" id="idstudent" placeholder="51900001" value="<?php echo $value['idstudent'] ?>">
                                                     </div>
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="birthday">Ngày sinh:</label>
-                                                        <input type="text" class="form-control" name="birthday" id="birthday" aria-describedby="warning3" placeholder="ex: 05/03/2001" required value="<?php echo $value['birthday'] ?>">
+                                                        <input type="text" class="form-control" name="birthday" id="birthday" placeholder="DD/MM/YYYY" value="<?php echo $value['birthday'] ?>">
                                                     </div>
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="team">Ban hiện tại:</label>
-                                                        <select name="team" id="team" class="custom-select" <?php if ($value['feature'] == 1) echo 'disabled' ?> required>
-                                                            <option selected value="<?php echo $value['team'] ?>">----Ban đã chọn <?php echo $value['team'] ?>----</option>
+                                                        <select name="team" id="team" class="custom-select" <?php if ($value['feature'] == 1) echo 'disabled' ?>>
+                                                            <option selected value="<?php echo $value['team'] ?>" class="font-weight-bold">Ban đã chọn - [<?php echo $value['team'] ?>]</option>
                                                             <option value="Hành Chính">Ban Hành chính</option>
                                                             <option value="Nhân Sự">Ban Nhân sự</option>
                                                             <option value="Truyền Thông">Ban Truyền thông</option>
-                                                            <option value="void">Khác...</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="phone">Số điện thoại:</label>
-                                                        <input type="text" class="form-control" name="phone" id="phone" aria-describedby="warning6" placeholder="ex: 03770....." required value="<?php echo $value['phone'] ?>">
+                                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="0377642847" value="<?php echo $value['phone'] ?>">
                                                     </div>
                                                     <div class="col-lg-6 mt-3">
                                                         <label for="facebook">Link facebook:</label>
-                                                        <input type="text" class="form-control" name="facebook" id="facebook" aria-describedby="warning6" placeholder="" required value="<?php echo $value['facebook'] ?>">
+                                                        <input type="text" class="form-control" name="facebook" id="facebook" placeholder="https://www.facebook.com/nguyenvana" value="<?php echo $value['facebook'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer mt-3 pt-2 pb-0">

@@ -175,7 +175,7 @@ if (isset($_GET['typedevice'])) {
                                                             <div class="form-group">
                                                                 <label for="device">Xóa loại thiết bị:</label>
                                                                 <select name="device" class="custom-select">
-                                                                    <option selected value="">---Chọn Thiết Bị---</option>
+                                                                    <option selected value="" class="font-weight-bold">Chọn loại thiết bị</option>
                                                                     <?php
                                                                     $getTypedevice = $manageEquipment->getTypedevice();
                                                                     if ($getTypedevice && $getTypedevice->num_rows > 0) {
@@ -187,7 +187,7 @@ if (isset($_GET['typedevice'])) {
                                                                 </select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <button onclick="return confirm('Hãy cân nhắc kỹ trước khi xóa?');" name="deleteTypedevice" type="submit " class="btn btn-warning">Xóa thiết bị</button>
+                                                                <button onclick="return confirm('Hãy cân nhắc kỹ trước khi xóa?');" name="deleteTypedevice" type="submit " class="btn btn-warning">Xóa loại thiết bị</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -215,7 +215,7 @@ if (isset($_GET['typedevice'])) {
                                                             <div class="form-group">
                                                                 <label for="typedevice">Loại thiết bị:</label>
                                                                 <select name="typedevice" class="custom-select">
-                                                                    <option selected value="">---Chọn Thiết Bị---</option>
+                                                                    <option selected value="" class="font-weight-bold">Chọn thiết bị</option>
                                                                     <?php
                                                                     $getTypedevice = $manageEquipment->getTypedevice();
                                                                     if ($getTypedevice && $getTypedevice->num_rows > 0) {
@@ -228,7 +228,7 @@ if (isset($_GET['typedevice'])) {
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="originalnumber">Số lượng:</label>
-                                                                <input type="text" class="form-control" name="originalnumber" id="originalnumber" aria-describedby="warning6" placeholder="200">
+                                                                <input type="number" class="form-control" name="originalnumber" id="originalnumber" aria-describedby="warning6" placeholder="200">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="form-group">

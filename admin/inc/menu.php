@@ -42,6 +42,7 @@ $manageRegister = new manageRegister();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="./assets/images/logo.png">
 
     <!-- Favicon icon -->
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
@@ -82,7 +83,7 @@ $manageRegister = new manageRegister();
                 <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             </div>
             <div class="navbar-content scroll-div ps ps--active-y">
-                <ul class="nav pcoded-inner-navbar">
+                <ul class="nav pcoded-inner-navbar" id="myList">
                     <!-- Trang chủ -->
                     <li class="nav-item pcoded-menu-caption">
                         <label>Thao tác chung</label>
@@ -150,13 +151,6 @@ $manageRegister = new manageRegister();
                         </li>
                     <?php } ?>
 
-                    <!-- Quản lý sự kiện -->
-                    <?php if (Session::get('level') == "050301" || Session::get('level') == "0") { ?>
-                        <li class="nav-item">
-                            <a href="?q=eventmanagement" class="nav-link"><span class="pcoded-micon"><i class="feather icon-radio"></i></span><span class="pcoded-mtext">Quản lý sự kiện</span></a>
-                        </li>
-                    <?php } ?>
-
                     <?php if (Session::get('level') == "050301" || Session::get('level') == "0") { ?>
                         <li class="nav-item pcoded-hasmenu">
                             <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Quản lý nhân
@@ -189,7 +183,7 @@ $manageRegister = new manageRegister();
                     <li class="nav-item pcoded-menu-caption">
                         <label>Thao tác khác</label>
                     </li>
-                    <?php if (Session::get('level') == "050301") { ?>
+                    <?php if (Session::get('level') != "050301") { ?>
                         <li class="nav-item">
                             <a href="?q=changepassword" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Đổi mật khẩu</span></a>
                         </li>

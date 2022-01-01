@@ -70,7 +70,7 @@ if (isset($checkmanageAttendance)) {
                                                         </li>
                                                         <?php if (Session::get('level') == "050301" || Session::get('level') == "0") { ?>
                                                             <li class="nav-item">
-                                                                <a class="nav-link text-left" id="schoolyear-tab" data-toggle="pill" href="#schoolyear" role="tab" aria-controls="schoolyear" aria-selected="false">Năm học</a>
+                                                                <a class="nav-link text-left" id="schoolyear-tab" data-toggle="pill" href="#schoolyear" role="tab" aria-controls="schoolyear" aria-selected="false">Quản lý năm học</a>
                                                             </li>
                                                         <?php } ?>
                                                     </ul>
@@ -109,8 +109,8 @@ if (isset($checkmanageAttendance)) {
                                                         <div class="col-lg-3">
                                                             <div class="form-group">
                                                                 <label for="schoolyear">Năm học:</label>
-                                                                <select style="height: 2.5rem; padding: 10px;" name="schoolyear" class="form-control form-control-sm">
-                                                                    <option selected value="">---Chọn Năm Học---</option>
+                                                                <select name="schoolyear" class="form-control form-control-sm">
+                                                                    <option selected value="" class="font-weight-bold">Chọn năm học</option>
                                                                     <?php
                                                                     $getShoolYear = $manageShoolYear->getShoolYear();
                                                                     if ($getShoolYear && $getShoolYear->num_rows > 0) {
@@ -125,8 +125,8 @@ if (isset($checkmanageAttendance)) {
                                                         <div class="col-lg-3">
                                                             <div class="form-group">
                                                                 <label for="semester">Học kỳ:</label>
-                                                                <select style="height: 2.5rem; padding: 10px;" name="semester" class="form-control form-control-sm">
-                                                                    <option selected value="">---Chọn Học Kỳ---</option>
+                                                                <select name="semester" class="form-control form-control-sm">
+                                                                    <option selected value="" class="font-weight-bold">Chọn học kỳ</option>
                                                                     <option value="Học kỳ 1">Học kỳ 1</option>
                                                                     <option value="Học kỳ 2">Học kỳ 2</option>
                                                                     <option value="Học kỳ hè">Học kỳ hè</option>
@@ -136,14 +136,14 @@ if (isset($checkmanageAttendance)) {
                                                         <div class="col-lg-3">
                                                             <div class="form-group">
                                                                 <label for="date">Ngày trực:</label>
-                                                                <input style="height: 2.5rem; padding: 10px;" class="form-control form-control-sm" type="date" id="date" name="date">
+                                                                <input style="height: 42.8px;" class="form-control form-control-sm" type="date" id="date" name="date">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-3">
                                                             <div class="form-group">
                                                                 <label for="shift">Ca trực:</label>
-                                                                <select style="height: 2.5rem; padding: 10px;" class="form-control form-control-sm mb-3" name="shift">
-                                                                    <option selected value="">---Chọn Ca Trực---</option>
+                                                                <select name="shift" class="form-control form-control-sm">
+                                                                    <option selected value="" class="font-weight-bold">Chọn ca trực</option>
                                                                     <option value="Ca 1">Ca 1</option>
                                                                     <option value="Ca 2">Ca 2 </option>
                                                                     <option value="Ca 3">Ca 3 </option>
@@ -219,7 +219,7 @@ if (isset($checkmanageAttendance)) {
                                                     <form action="?q=attendance" method="POST">
                                                         <div class="form-group">
                                                             <label for="schoolyear">Tạo năm học:</label>
-                                                            <input style="height: 2.5rem; padding: 10px;" type="text" class="form-control" name="schoolyear" id="schoolyear" aria-describedby="warning6" placeholder="2021-2022">
+                                                            <input type="text" class="form-control" name="schoolyear" id="schoolyear" aria-describedby="warning6" placeholder="2021-2022">
                                                         </div>
                                                         <div class="form-group">
                                                             <button name="setShoolYear" type="submit " class="btn btn-primary">Tạo năm học</button>
@@ -230,8 +230,8 @@ if (isset($checkmanageAttendance)) {
                                                     <form action="?q=attendance" method="POST">
                                                         <div class="form-group">
                                                             <label for="schoolyear">Xóa năm học:</label>
-                                                            <select style="height: 2.5rem; padding: 10px;" name="schoolyear" class="custom-select">
-                                                                <option selected value="">---Chọn năm học---</option>
+                                                            <select name="schoolyear" class="custom-select">
+                                                                <option selected value="" class="font-weight-bold">Chọn năm học</option>
                                                                 <?php
                                                                 $getShoolYear = $manageShoolYear->getShoolYear();
                                                                 if ($getShoolYear && $getShoolYear->num_rows > 0) {

@@ -170,6 +170,9 @@ if (isset($_GET["q"])) {
                 echo "<script>alert('Bạn không có quyền truy cập vào trang này!'); window.location='?q=homepage';</script>";
             }
             break;
+        default:
+            include_once 'pages/error.php';
+            break;
     }
 } else {
     include_once 'pages/homepage.php';

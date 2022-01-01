@@ -25,6 +25,7 @@
                 <div class="row">
                     <?php
                     $cn = $manageStructure->getChuNhiem();
+                    $pcn = $manageStructure->getPhoChuNhiem();
                     $phc = $manageStructure->getPhoBanhanhChinh();
                     $pns = $manageStructure->getPhoBanNhanSu();
                     $ptt = $manageStructure->getPhoBanTruyenThong();
@@ -39,6 +40,14 @@
                     } else {
                         $facebook_cn  = "?q=homepage";
                         $fullname_cn  = "---------------";
+                    }
+                    if ($pcn && $pcn->num_rows > 0) {
+                        $value_pcn = $pcn->fetch_assoc();
+                        $facebook_pcn  = $value_pcn['facebook'];
+                        $fullname_pcn  = $value_pcn['fullname'];
+                    } else {
+                        $facebook_pcn  = "?q=homepage";
+                        $fullname_pcn  = "---------------";
                     }
                     if ($phc && $phc->num_rows > 0) {
                         $value_phc = $phc->fetch_assoc();
@@ -92,6 +101,7 @@
                     <div class="col-xs-6">
                         <ul class="list-unstyled left">
                             <li><a href="<?php echo $facebook_cn ?>">Chủ nhiệm</a></li>
+                            <li><a href="<?php echo $facebook_pcn ?>">Phó Chủ nhiệm</a></li>
                             <li><a href="<?php echo $facebook_thc ?>">T.Ban Hành chính</a></li>
                             <li><a href="<?php echo $facebook_phc ?>">P.Ban Hành chính</a></li>
                             <li><a href="<?php echo $facebook_tns ?>">T.Ban Nhân sự</a></li>
@@ -103,6 +113,7 @@
                     <div class="col-xs-6">
                         <ul class="list-unstyled">
                             <li><a href="<?php echo $facebook_cn  ?>"><?php echo $fullname_cn ?></a></li>
+                            <li><a href="<?php echo $facebook_pcn  ?>"><?php echo $fullname_pcn ?></a></li>
                             <li><a href="<?php echo $facebook_thc ?>"><?php echo $fullname_thc ?></a></li>
                             <li><a href="<?php echo $facebook_phc ?>"><?php echo $fullname_phc ?></a></li>
                             <li><a href="<?php echo $facebook_tns ?>"><?php echo $fullname_tns ?></a></li>

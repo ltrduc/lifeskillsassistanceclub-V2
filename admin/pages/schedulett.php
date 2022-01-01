@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
                                                 <?php } ?>
 
                                                 <div class="float-right">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaltt"><i class="fa fa-edit"></i>&nbsp; Đăng ký</button>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaltt"><i class="fa fa-edit"></i>&nbsp; Đăng ký lịch trực</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -416,7 +416,7 @@ if (isset($_GET['id'])) {
                                             <label for="idstudent">Thành viên:</label>
                                             <?php if (Session::get('level') == "050301" || Session::get('level') == "0") { ?>
                                                 <select name="idstudent" class="form-control form-control-sm">
-                                                    <option selected value="">---Chọn Nhân Sự---</option>
+                                                    <option selected value="" class="font-weight-bold">Chọn nhân sự</option>
                                                     <?php
                                                     $getSchedulett = $manageSchedule->getScheduleTt();
                                                     if ($getSchedulett && $getSchedulett->num_rows > 0) {
@@ -436,7 +436,7 @@ if (isset($_GET['id'])) {
                                         <div class="form-group">
                                             <label for="session">Buổi trực:</label>
                                             <select name="session" class="form-control form-control-sm">
-                                                <option selected value="">---Chọn Ca Trực---</option>
+                                                <option selected value="" class="font-weight-bold">Chọn buổi trực</option>
                                                 <option value="Thứ 2">Thứ 2</option>
                                                 <option value="Thứ 3">Thứ 3</option>
                                                 <option value="Thứ 4">Thứ 4</option>
@@ -444,7 +444,6 @@ if (isset($_GET['id'])) {
                                                 <option value="Thứ 6">Thứ 6</option>
                                                 <option value="Thứ 7">Thứ 7</option>
                                             </select>
-                                            <small class="invalid-feedback" id="warning6">Vui lòng điền đầy đủ thông tin.</small>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -471,7 +470,7 @@ if (isset($_GET['id'])) {
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit" name="register" class="btn btn-primary">Đăng ký</button>
+                                        <button type="submit" name="register" class="btn btn-primary">Đăng ký lịch trực</button>
                                     </div>
                                 </div>
                             </div>

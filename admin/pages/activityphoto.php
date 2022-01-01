@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                                                         <label for="images">Tải ảnh: </label>
                                                         <div class="custom-file p-2">
                                                             <input type="file" name="images" class="custom-file-input" id="images">
-                                                            <label style="height: 40px;" class="custom-file-label p-2" for="images">Chọn ảnh</label>
+                                                            <label style="height: 40px;" class="custom-file-label p-2" for="images">Chọn ảnh hoạt động</label>
                                                         </div>
                                                         <script>
                                                             // Add the following code if you want the name of the file appear on select

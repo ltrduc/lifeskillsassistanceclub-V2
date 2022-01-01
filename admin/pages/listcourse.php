@@ -66,7 +66,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                     <div class="form-group">
                                                         <label for="subjects">Môn học: </label>
                                                         <select name="subjects" class="form-control">
-                                                            <option selected value="">---Chọn Môn Học---</option>
+                                                            <option selected value="" class="font-weight-bold">Chọn môn học</option>
                                                             <?php
                                                             $getSubjects = $manageSubjects->getSubjects();
                                                             if ($getSubjects && $getSubjects->num_rows > 0) {
@@ -90,13 +90,13 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="teacher">Tên Giảng viên: </label>
-                                                        <input type="text" class="form-control" name="teacher" id="teacher" aria-describedby="warning6" placeholder="">
+                                                        <input type="text" class="form-control" name="teacher" id="teacher" aria-describedby="warning6" placeholder="Nguyễn Thị B">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <label for="period">Buổi học: </label>
                                                     <select name="period" class="form-control mb-3">
-                                                        <option selected value="">---Chọn Số Buổi Học---</option>
+                                                        <option selected value="" class="font-weight-bold">Chọn buổi học</option>
                                                         <option value="Sáng - Buổi 1">Sáng - Buổi 1</option>
                                                         <option value="Sáng - Buổi 2">Sáng - Buổi 2</option>
                                                         <option value="Chiều - Buổi 1">Chiều - Buổi 1</option>
@@ -110,7 +110,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                 <div class="col-sm">
                                                     <label for="local">Địa điểm</label>
                                                     <select name="local" class="form-control mb-3">
-                                                        <option selected value="">---Chọn Địa Điểm---</option>
+                                                        <option selected value="" class="font-weight-bold">Chọn địa điểm</option>
                                                         <option value="10A">Hội trường 10A</option>
                                                         <option value="6B">Hội trường 6B</option>
                                                         <option value="Khác">Khác</option>
@@ -126,7 +126,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                 <div class="col-sm">
                                                     <label for="semester">Học kỳ</label>
                                                     <select name="semester" class="form-control mb-3">
-                                                        <option selected value="">---Chọn Học Kỳ---</option>
+                                                        <option selected value="" class="font-weight-bold">Chọn học kỳ</option>
                                                         <option value="Học kỳ 1">Học kỳ 1</option>
                                                         <option value="Học kỳ 2">Học kỳ 2</option>
                                                         <option value="Học kỳ hè">Học kỳ hè</option>
@@ -135,7 +135,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                 <div class="col-sm">
                                                     <label for="schoolyear">Niên học:</label>
                                                     <select name="schoolyear" class="form-control">
-                                                        <option selected value="">---Chọn Niên Học---</option>
+                                                        <option selected value="" class="font-weight-bold">Chọn niên học</option>
                                                         <?php
                                                         $getShoolYear = $manageShoolYear->getShoolYear();
                                                         if ($getShoolYear && $getShoolYear->num_rows > 0) {
@@ -150,7 +150,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
 
                                             <div class="modal-footer">
                                                 <div class="form-group">
-                                                    <button name="addcourse" type="submit" class="btn btn-primary">Tạo mới
+                                                    <button name="addcourse" type="submit" class="btn btn-primary">Tạo lịch học
                                                     </button>
                                                 </div>
                                             </div>
@@ -189,7 +189,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                     <div class="form-group">
                                                         <label for="subjects">Xóa môn học:</label>
                                                         <select name="subjects" class="custom-select">
-                                                            <option selected value="">---Chọn Môn Học---</option>
+                                                            <option selected value="" class="font-weight-bold">Chọn môn học</option>
                                                             <?php
                                                             $getSubjects = $manageSubjects->getSubjects();
                                                             if ($getSubjects && $getSubjects->num_rows > 0) {
@@ -222,8 +222,8 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                             <h5 class="m-b-10">Quản lý lịch học</h5>
                                         </div>
                                         <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="">Lịch học</a></li>
+                                            <li class="breadcrumb-item"><a href="" class="font-weight-bold"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="" class="font-weight-bold">Lịch học</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
@@ -274,7 +274,7 @@ if (isset($_GET["schoolyear"]) && isset($_GET["semesters"]) && isset($_GET["date
                                                         ?>
                                                                 <tr>
                                                                     <td style="font-weight: bold; "><?php echo $i++; ?></td>
-                                                                    <td><?php echo $value['dates']; ?></td>
+                                                                    <td><?php echo $fm->formatDate($value['dates']); ?></td>
                                                                     <td><?php echo $value['semesters']; ?></td>
                                                                     <td><?php echo $value['schoolyear']; ?></td>
                                                                     <td class="text-center">

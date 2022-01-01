@@ -154,6 +154,11 @@ class manageMember
         $phone = mysqli_real_escape_string($this->db->link, $this->fm->validation($phone));
         $facebook = mysqli_real_escape_string($this->db->link, $this->fm->validation($facebook));
 
+        if (empty($idstudent) || empty($fullname)) {
+            $alert = '<script> toastr.warning("Vui lòng nhập đầy đủ dữ liệu!");</script>';
+            return $alert;
+        }
+
         $query = "UPDATE `tbl_user` SET `fullname`='$fullname', `birthday`='$birthday', `facebook`='$facebook',
         `team`='$team', `phone`='$phone' WHERE `id` = '$id' AND idstudent = '$idstudent'";
         $result = $this->db->update($query);

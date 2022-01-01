@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
                                                                     <td><?php echo $value['team']; ?></td>
                                                                     <td><?php echo $value['schoolyear']; ?></td>
                                                                     <td><?php echo $value['semester']; ?></td>
-                                                                    <td><?php echo $value['date']; ?></td>
+                                                                    <td><?php echo $fm->formatDate($value['date']); ?></td>
                                                                     <td><?php echo $value['shift']; ?></td>
                                                                     <td>
                                                                         <a class="text-center btn btn-danger" style="margin: 0; padding: 2px 10px;" onclick="return confirm('Hãy cân nhắc kỹ trước khi xóa?');" href="?q=detailedstatistics&id=<?php echo $value['id']; ?>&schoolyear=<?php echo $value['schoolyear']; ?>&semester=<?php echo $value['semester']; ?>" name="delete" type="submit"><i class="fa fa-trash " style="margin-right: 0;"></i></a>

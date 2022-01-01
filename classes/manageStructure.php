@@ -130,6 +130,14 @@ class manageStructure
         return $result;
     }
 
+    public function getPhoChuNhiem()
+    {
+        $query = "SELECT tbl_user.fullname, tbl_user.facebook FROM `tbl_structure`, `tbl_user` 
+        WHERE tbl_user.idstudent = tbl_structure.idstudent AND position = 'Phó Chủ nhiệm'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
     public function getPhoBanhanhChinh()
     {
         $query = "SELECT tbl_user.fullname, tbl_user.facebook FROM `tbl_structure`, `tbl_user` 

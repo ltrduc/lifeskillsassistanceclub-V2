@@ -143,7 +143,7 @@ if (isset($checkMember)) {
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="idstudent">Mã số sinh viên:</label>
-                                                    <input type="text" class="form-control" name="idstudent" id="idstudent" placeholder="5190----" required>
+                                                    <input type="text" class="form-control" name="idstudent" id="idstudent" placeholder="51900001" required>
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="birthday">Ngày sinh:</label>
@@ -152,20 +152,19 @@ if (isset($checkMember)) {
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="team">Ban hiện tại:</label>
                                                     <select name="team" id="team" class="custom-select" required>
-                                                        <option selected value="">----Chọn Ban----</option>
+                                                        <option selected value="" class="font-weight-bold">Chọn ban</option>
                                                         <option value="Hành Chính">Ban Hành chính</option>
                                                         <option value="Nhân Sự">Ban Nhân sự</option>
                                                         <option value="Truyền Thông">Ban Truyền thông</option>
-                                                        <option value="void">Khác...</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6 mt-3">
                                                     <label for="phone">Số điện thoại:</label>
-                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Nếu không có số điện thoại thì để: 0" required>
+                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="0377642847" required>
                                                 </div>
                                                 <div class="col-6 mt-3">
                                                     <label for="facebook">Link facebook:</label>
-                                                    <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Nếu không có Facebook thì để: Null" required>
+                                                    <input type="text" class="form-control" name="facebook" id="facebook" placeholder="https://www.facebook.com/nguyenvana" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer mt-3">

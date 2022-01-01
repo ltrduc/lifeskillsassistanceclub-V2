@@ -53,7 +53,7 @@ if (isset($checkStructure)) {
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="text-right">
-                                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                                        <button type="submit" class="btn btn-primary">Cập nhật cơ cấu</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +64,7 @@ if (isset($checkStructure)) {
                                                     <div class="col-lg-4 mt-3">
                                                         <label for="idstudent">Tên nhân sự:</label>
                                                         <select style="height: 40px;" name="idstudent" class="custom-select">
-                                                            <option selected value="">---Chọn Nhân Sự---</option>
+                                                            <option selected value="" class="font-weight-bold">Chọn nhân sự</option>
                                                             <?php
                                                             $getstructure = $manageMember->getMember();
                                                             if ($getstructure && $getstructure->num_rows > 0) {
@@ -78,14 +78,15 @@ if (isset($checkStructure)) {
                                                     <div class="col-lg-4 mt-3">
                                                         <label for="position">Vị trí:</label>
                                                         <select style="height: 40px;" name="position" class="custom-select">
-                                                            <option selected value="">---Chọn Vị Trí---</option>
-                                                            <option value="Chủ nhiệm">0. Chủ nhiệm</option>
-                                                            <option value="Trưởng ban Hành chính">1. Trưởng ban Hành chính</option>
-                                                            <option value="Phó ban Hành chính">2. Phó ban Hành chính</option>
-                                                            <option value="Trưởng ban Truyền thông">3. Trưởng ban Truyền thông</option>
-                                                            <option value="Phó ban Truyền thông">4. Phó ban Truyền thông</option>
-                                                            <option value="Trưởng ban Nhân sự">5. Trưởng ban Nhân sự</option>
-                                                            <option value="Phó ban Nhân sự">6. Phó ban Nhân sự</option>
+                                                            <option selected value="" class="font-weight-bold">Chọn chức vụ</option>
+                                                            <option value="Chủ nhiệm">1. Chủ nhiệm</option>
+                                                            <option value="Phó Chủ nhiệm">2. Phó Chủ nhiệm</option>
+                                                            <option value="Trưởng ban Hành chính">3. Trưởng ban Hành chính</option>
+                                                            <option value="Phó ban Hành chính">4. Phó ban Hành chính</option>
+                                                            <option value="Trưởng ban Truyền thông">5. Trưởng ban Truyền thông</option>
+                                                            <option value="Phó ban Truyền thông">6. Phó ban Truyền thông</option>
+                                                            <option value="Trưởng ban Nhân sự">7. Trưởng ban Nhân sự</option>
+                                                            <option value="Phó ban Nhân sự">8. Phó ban Nhân sự</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4 mt-3">

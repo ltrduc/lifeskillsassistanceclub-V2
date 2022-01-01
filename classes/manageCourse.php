@@ -44,7 +44,7 @@ class manageCourse
         $result = $this->db->select($query);
 
         if ($result) {
-            $alert = '<script> toastr.warning("Lớp học đã tồn tại!");</script>';
+            $alert = '<script> toastr.warning("Dữ liệu đã tồn tại!");</script>';
             return $alert;
         }
 

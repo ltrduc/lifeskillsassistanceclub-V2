@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $db->update($query);
 
         if ($result != false) {
-            echo '<script> toastr.warning("Đã tắt form đăng ký!");</script>';
+            echo '<script> toastr.warning("Đã đóng đăng ký tuyển thành viên!");</script>';
         }
     }
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $db->update($query);
 
         if ($result != false) {
-            echo '<script> toastr.success("Đã bật form đăng ký!");</script>';
+            echo '<script> toastr.success("Đã mở đăng ký tuyển thành viên!");</script>';
         }
     }
 }
